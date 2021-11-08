@@ -1,7 +1,9 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    ast (2.4.2)
     concurrent-ruby (1.1.9)
+    diff-lcs (1.4.4)
     dry-cli (0.7.0)
     dry-configurable (0.13.0)
       concurrent-ruby (~> 1.0)
@@ -11,6 +13,40 @@ GEM
       dry-configurable (~> 0.13, >= 0.13.0)
     dry-core (0.7.1)
       concurrent-ruby (~> 1.0)
+    parallel (1.21.0)
+    parser (3.0.2.0)
+      ast (~> 2.4.1)
+    rainbow (3.0.0)
+    regexp_parser (2.1.1)
+    rexml (3.2.5)
+    rspec (3.10.0)
+      rspec-core (~> 3.10.0)
+      rspec-expectations (~> 3.10.0)
+      rspec-mocks (~> 3.10.0)
+    rspec-core (3.10.1)
+      rspec-support (~> 3.10.0)
+    rspec-expectations (3.10.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.10.0)
+    rspec-mocks (3.10.2)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.10.0)
+    rspec-support (3.10.3)
+    rubocop (1.22.3)
+      parallel (~> 1.10)
+      parser (>= 3.0.0.0)
+      rainbow (>= 2.2.2, < 4.0)
+      regexp_parser (>= 1.8, < 3.0)
+      rexml
+      rubocop-ast (>= 1.12.0, < 2.0)
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (>= 1.4.0, < 3.0)
+    rubocop-ast (1.13.0)
+      parser (>= 3.0.1.1)
+    rubocop-rspec (2.6.0)
+      rubocop (~> 1.19)
+    ruby-progressbar (1.11.0)
+    unicode-display_width (2.1.0)
     zeitwerk (2.5.1)
 
 PLATFORMS
@@ -19,6 +55,10 @@ PLATFORMS
 DEPENDENCIES
   dry-cli (~> 0.7.0)
   dry-container (~> 0.9.0)
+  rspec
+  rspec-expectations
+  rubocop (~> 1.22.3)
+  rubocop-rspec (~> 2.6.0)
   zeitwerk (~> 2.5.1)
 
 RUBY VERSION
