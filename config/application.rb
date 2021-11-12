@@ -5,8 +5,12 @@ require_relative "boot"
 require "pathname"
 require "zeitwerk"
 
+require "pry" if ENV["APP_ENV"] == "development" || ENV["APP_ENV"] == "test"
+
+PROJECT_ROOT = File.expand_path("..", __dir__)
+
 loader = Zeitwerk::Loader.new
-project_root = File.expand_path("..", __dir__)
-loader.push_dir Pathname(project_root).join("lib").realpath
+lib_folder = Pathname(PROJECT_ROOT).join("lib").realpath
+loader.push_dir(lib_folder)
 
 loader.setup

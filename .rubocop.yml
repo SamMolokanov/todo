@@ -3,14 +3,14 @@ require: rubocop-rspec
 AllCops:
   NewCops: enable
 
-Layout:
-  EmptyLinesAroundClassBody:
-    EnforcedStyle: empty_lines
-  EmptyLinesAroundModuleBody:
-    EnforcedStyle: empty_lines
+Layout/EmptyLinesAroundClassBody:
+  EnforcedStyle: empty_lines
 
 Style/StringLiterals:
   EnforcedStyle: double_quotes
 
 Style/Documentation:
   Enabled: false
+
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: consistent_comma

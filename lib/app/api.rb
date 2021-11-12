@@ -5,7 +5,7 @@ module App
     module_function
 
     def add_item(title:, body:)
-      [title, body]
+      App::Operations::AddItem.new.call(title: title, body: body)
     end
   end
 end
