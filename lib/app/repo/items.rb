@@ -17,6 +17,10 @@ module App
         storage.save(new_item.to_h)
       end
 
+      def delete(id)
+        storage.delete(id)
+      end
+
     end
   end
 end

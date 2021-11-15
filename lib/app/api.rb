@@ -11,5 +11,9 @@ module App
     def all_items
       App::Operations::AllItems.new.call
     end
+
+    def delete_item(id:)
+      App::Operations::DeleteItem.new.call(id: id)
+    end
   end
 end
