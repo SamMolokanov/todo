@@ -10,6 +10,8 @@ gem "dry-configurable", "~> 0.13.0"
 gem "dry-container", "~> 0.9.0"
 gem "dry-struct", "~> 1.4.0"
 
+gem "reline", "~> 0.1.5"
+
 gem "zeitwerk", "~> 2.5.1"
 
 group :development do

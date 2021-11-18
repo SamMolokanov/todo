@@ -12,6 +12,7 @@ module App
       def call(title:, body:)
         item = item_model.new(title: title, body: body)
         items_repository.create(item)
+        item
       end
 
     end

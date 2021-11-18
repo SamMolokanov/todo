@@ -1,0 +1,30 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require "reline"
+
+require_relative "../config/application"
+
+begin
+  stty_save = `stty -g`.chomp
+# rubocop:disable Lint/SuppressedException
+rescue StandardError
+end
+# rubocop:enable Lint/SuppressedException
+
+begin
+  puts "Welcome to the TODO app"
+  use_history = true
+
+  Reline.completion_proc = proc { |_word| Interactive::Runner::COMMANDS }
+
+  while (command = Reline.readline("command > ", use_history))
+    Interactive::Runner.new.call(command)
+  end
+rescue Interrupt
+  puts "^C Interrupting TODO app"
+  `stty #{stty_save}` if stty_save
+  exit 0
+end
+
+puts
