@@ -21,6 +21,10 @@ module App
         storage.delete(id)
       end
 
+      def delete_all
+        storage.reset
+      end
+
     end
   end
 end

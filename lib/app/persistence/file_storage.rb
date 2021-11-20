@@ -30,6 +30,10 @@ module App
           .then { |new_elements| persist new_elements }
       end
 
+      def reset
+        persist []
+      end
+
       private
 
       def with_file
