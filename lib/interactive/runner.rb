@@ -6,12 +6,14 @@ module Interactive
     ADD_ITEM_COMMAND = "add_item"
     ALL_ITEMS_COMMAND = "all_items"
     DELETE_ITEM_COMMAND = "delete_item"
+    DELETE_ALL_COMMAND = "delete_all"
     EXIT_COMMANDS = %w[exit quit q].freeze
 
     COMMANDS = [
       ADD_ITEM_COMMAND,
       ALL_ITEMS_COMMAND,
       DELETE_ITEM_COMMAND,
+      DELETE_ALL_COMMAND,
       *EXIT_COMMANDS
     ].freeze
 
@@ -26,6 +28,8 @@ module Interactive
         Interactive::AllItemsCommand.new.call
       when DELETE_ITEM_COMMAND
         Interactive::DeleteItemCommand.new.call
+      when DELETE_ALL_COMMAND
+        Interactive::DeleteAllCommand.new.call
       else
         puts "Unknown command: #{command}"
       end
