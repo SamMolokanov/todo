@@ -1,25 +1,26 @@
 # frozen_string_literal: true
 
 RSpec.describe "App::Api.all_items" do
-  context "when persistence is set to file" do
+  context "when there is no items" do
     subject(:all_items) { App::Api.all_items }
 
-    let(:items_as_json) do
-      <<~JSON.strip
-        [
-          {"id": "1", "title": "t1", "body": "b1"},
-          {"id": "2", "title": "t2", "body": "b2"}
-        ]
-      JSON
-    end
+    before { App::Api.delete_all }
 
-    before do
-      File.write(App::Config.persistence.filepath, items_as_json)
+    it "is an empty array" do
+      expect(all_items).to eq []
     end
+  end
 
-    it "returns all items from the file" do
-      expected_items = JSON.parse(items_as_json).map { |el| App::Models::Item.new(el) }
-      expect(all_items).to eq expected_items
+  context "when there are items" do
+    subject(:all_items) { App::Api.all_items }
+
+    before { App::Api.delete_all }
+
+    it "returns all existing items" do
+      item1 = App::Api.add_item(title: "t1", body: "b1")
+      item2 = App::Api.add_item(title: "t2", body: "b2")
+
+      expect(all_items).to contain_exactly(item1, item2)
     end
   end
 end

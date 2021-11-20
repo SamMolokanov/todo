@@ -8,9 +8,13 @@ module App
 
       transform_keys(&:to_sym)
 
-      attribute :id, Types::String.default(SecureRandom.uuid.freeze)
+      attribute :id, Types::String.default(proc { SecureRandom.uuid }.freeze)
       attribute :title, Types::String
       attribute :body, Types::String.optional
+
+      def ==(other)
+        other.class == self.class && other.attributes == attributes
+      end
 
     end
   end
