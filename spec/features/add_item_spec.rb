@@ -22,4 +22,8 @@ RSpec.describe "App::Api.add_item" do
   it "creates a new item with the given body" do
     expect(add_item.body).to eq body
   end
+
+  it "creates a new item which is not done" do
+    expect(add_item.done).to eq false
+  end
 end

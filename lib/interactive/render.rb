@@ -8,7 +8,7 @@ module Interactive
     end
 
     def call
-      "  id:#{@item.id}\n\n  title:\n#{@item.title}\n\n  body:\n#{@item.body}"
+      "  id:#{@item.id}\n\n  done:\n#{@item.done}\n\n  title:\n#{@item.title}\n\n  body:\n#{@item.body}"
     end
 
   end

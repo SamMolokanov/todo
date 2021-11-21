@@ -11,6 +11,7 @@ module App
       attribute :id, Types::String.default(proc { SecureRandom.uuid }.freeze)
       attribute :title, Types::String
       attribute :body, Types::String.optional
+      attribute :done, Types::Bool.optional.default(false)
 
       def ==(other)
         other.class == self.class && other.attributes == attributes
