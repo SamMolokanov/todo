@@ -25,6 +25,10 @@ module App
         storage.reset
       end
 
+      def update(id, changeset)
+        storage.update(id, changeset.transform_keys(&:to_s))
+      end
+
     end
   end
 end

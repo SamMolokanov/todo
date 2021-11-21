@@ -34,6 +34,12 @@ module App
         persist []
       end
 
+      def update(id, changeset)
+        read
+          .map { |el| el["id"] == id ? apply_changeset(el, changeset) : el }
+          .then { |new_elements| persist new_elements }
+      end
+
       private
 
       def with_file
@@ -51,6 +57,10 @@ module App
           file.flush
           file.write(JSON.dump(array_of_elements))
         end
+      end
+
+      def apply_changeset(existing_element, changeset)
+        existing_element.merge(changeset)
       end
 
     end
